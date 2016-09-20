@@ -12,6 +12,7 @@
 		3D6F570D1D91817900449742 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3D6F570B1D91817900449742 /* Main.storyboard */; };
 		3D6F570F1D91817900449742 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 3D6F570E1D91817900449742 /* Assets.xcassets */; };
 		3D6F57121D91817900449742 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3D6F57101D91817900449742 /* LaunchScreen.storyboard */; };
+		3D6F57231D9181BC00449742 /* Copy-frameworks.sh in Resources */ = {isa = PBXBuildFile; fileRef = 3D6F571F1D9181BC00449742 /* Copy-frameworks.sh */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -22,6 +23,9 @@
 		3D6F570E1D91817900449742 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		3D6F57111D91817900449742 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		3D6F57131D91817900449742 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		3D6F571B1D9181A500449742 /* libReveal.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; path = libReveal.dylib; sourceTree = "<group>"; };
+		3D6F571D1D9181A500449742 /* RevealServer.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = RevealServer.framework; sourceTree = "<group>"; };
+		3D6F571F1D9181BC00449742 /* Copy-frameworks.sh */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.script.sh; path = "Copy-frameworks.sh"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -54,6 +58,8 @@
 		3D6F57061D91817900449742 /* RevealAllInOne */ = {
 			isa = PBXGroup;
 			children = (
+				3D6F571E1D9181BC00449742 /* Config */,
+				3D6F57191D9181A500449742 /* Reveal */,
 				3D6F57071D91817900449742 /* AppDelegate.swift */,
 				3D6F57091D91817900449742 /* ViewController.swift */,
 				3D6F570B1D91817900449742 /* Main.storyboard */,
@@ -62,6 +68,39 @@
 				3D6F57131D91817900449742 /* Info.plist */,
 			);
 			path = RevealAllInOne;
+			sourceTree = "<group>";
+		};
+		3D6F57191D9181A500449742 /* Reveal */ = {
+			isa = PBXGroup;
+			children = (
+				3D6F571A1D9181A500449742 /* 1 */,
+				3D6F571C1D9181A500449742 /* 2 */,
+			);
+			path = Reveal;
+			sourceTree = "<group>";
+		};
+		3D6F571A1D9181A500449742 /* 1 */ = {
+			isa = PBXGroup;
+			children = (
+				3D6F571B1D9181A500449742 /* libReveal.dylib */,
+			);
+			path = 1;
+			sourceTree = "<group>";
+		};
+		3D6F571C1D9181A500449742 /* 2 */ = {
+			isa = PBXGroup;
+			children = (
+				3D6F571D1D9181A500449742 /* RevealServer.framework */,
+			);
+			path = 2;
+			sourceTree = "<group>";
+		};
+		3D6F571E1D9181BC00449742 /* Config */ = {
+			isa = PBXGroup;
+			children = (
+				3D6F571F1D9181BC00449742 /* Copy-frameworks.sh */,
+			);
+			path = Config;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -74,6 +113,7 @@
 				3D6F57001D91817900449742 /* Sources */,
 				3D6F57011D91817900449742 /* Frameworks */,
 				3D6F57021D91817900449742 /* Resources */,
+				3D6F57271D9181F400449742 /* ShellScript */,
 			);
 			buildRules = (
 			);
@@ -123,6 +163,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				3D6F57231D9181BC00449742 /* Copy-frameworks.sh in Resources */,
 				3D6F57121D91817900449742 /* LaunchScreen.storyboard in Resources */,
 				3D6F570F1D91817900449742 /* Assets.xcassets in Resources */,
 				3D6F570D1D91817900449742 /* Main.storyboard in Resources */,
@@ -130,6 +171,22 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		3D6F57271D9181F400449742 /* ShellScript */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/RevealAllInOne/Config/Copy-frameworks.sh\"";
+		};
+/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		3D6F57001D91817900449742 /* Sources */ = {
@@ -260,6 +317,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				INFOPLIST_FILE = RevealAllInOne/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				OTHER_SWIFT_FLAGS = "\"-D\" \"DEBUG\"";
 				PRODUCT_BUNDLE_IDENTIFIER = com.aimy.RevealAllInOne;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 3.0;
